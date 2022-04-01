@@ -5,9 +5,23 @@
     <meta charset="utf-8">
     <title>{{ pageTitle }}</title>
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/stylesheet.css') }}">
+<style>
+  ul#menu li {
+  display:inline;
+}
+</style>
 </head>
-
   <body>
+    <header>
+      <h1>Vertical Tank Maintenance</h1>
+      <nav>
+        <ul id="menu">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/estimate">Estimate</a></li>
+        </ul>
+      </nav>
+    </header>
 
       {% block body %}
 
