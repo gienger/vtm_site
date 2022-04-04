@@ -1,4 +1,10 @@
 body {
-  background-color: rgb(173, 230, 182);
-  margin: 500px;
+  background-color: #004643;
+  margin: 250px;
+}
+p {
+  color: #abd1c6;
+}
+h1 {
+  color: #fffffe;
 }
