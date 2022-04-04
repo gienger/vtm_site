@@ -1,14 +1,11 @@
 body {
   background-color: #004643;
-  margin: 250px;
+  margin: 100px;
   padding: 20px;
 }
 p {
   color: #abd1c6;
 }
-h1 {
-  color: #fffffe;
-}
-h2 {
-  color: #fffffe;
+ul {
+  border: 5px whitesmoke;
 }

@@ -1,6 +1,7 @@
 from configparser import MissingSectionHeaderError
+from crypt import methods
 from flask import Flask
-from flask import render_template
+from flask import render_template, redirect, request
 
 app = Flask(__name__)
 
@@ -12,7 +13,7 @@ def index():
 def about():
     return render_template('about.html', pageTitle='About')
 
-@app.route('/estimate')
+@app.route('/estimate', methods=['GET','POST'])
 def estimate():
     if request.method == 'POST':
         form = request.form
@@ -20,15 +21,15 @@ def estimate():
         height = float(form['height'])
         pi= 3.14
         tank_top= pi*radius^2
-        tank_sides= 2(pi(radius*height))
+        tank_sides= 2*(pi*(radius*height))
         total_area= tank_top+tank_sides
         area_sqft= total_area/144
         material_cost= area_sqft*25
         labor_cost= area_sqft*15
-        total_estimate= material_cost+labor_cost
+        total_estimate= "{;,.2f}".format(round(material_cost+labor_cost,2))
         print(total_estimate)
-        return render_template('estimate.html', pageTitle='Estimate', estimate=total_estimate)
-    return render_template('estimate.html')
+        return render_template('estimate.html', Estimate= total_estimate)
+    return render_template('estimate.html', pageTitle='VTM Estimate')
 
 if __name__ == '__main__':
     app.run(debug=True)

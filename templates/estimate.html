@@ -13,8 +13,12 @@
 		<label for="height">Tank Height:</label>
 		<input type="text" id="height" name="height"/>
 		<br>
-		<input type="Submit" value="Estimate" id="Submit">
-
+		<input type="Submit" id="submit" value="Estimate">
 	</form>
-
+	<br>
+	<br>
+	<h3>Total Maintenance Cost</h3>
+	{% if estimate %}
+		{{estimate}}
+	{% endif %}
 {% endblock %}
