@@ -1,5 +1,3 @@
-from configparser import MissingSectionHeaderError
-from crypt import methods
 from flask import Flask
 from flask import render_template, redirect, request
 
