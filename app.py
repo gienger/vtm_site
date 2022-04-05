@@ -20,15 +20,14 @@ def estimate():
         radius = float(form['radius'])
         height = float(form['height'])
         pi= 3.14
-        tank_top= pi*radius^2
+        tank_top= pi*radius**2
         tank_sides= 2*(pi*(radius*height))
         total_area= tank_top+tank_sides
         area_sqft= total_area/144
         material_cost= area_sqft*25
         labor_cost= area_sqft*15
-        total_estimate= "{;,.2f}".format(round(material_cost+labor_cost,2))
-        print(total_estimate)
-        return render_template('estimate.html', Estimate= total_estimate)
+        total_estimate= "${:,.2f}".format(round(material_cost+labor_cost,2))
+        return render_template('estimate.html', estimate= total_estimate)
     return render_template('estimate.html', pageTitle='VTM Estimate')
 
 if __name__ == '__main__':
