@@ -66,9 +66,9 @@ jobs:
             ./BUILD
   deploy:
     runs-on: ubuntu-latest
-    needs: package
+    needs: build
     environment:
-      name: "Production"
+      name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
@@ -77,11 +77,11 @@ jobs:
         with:
           name: python-app
           path: .
-
-      - name: "Deploy to Azure Web App"
+          
+      - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
-          app-name: "flask-tests" # may need to edit for web app name
-          slot-name: "Production"
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E16734155BF04163B6C12E269CBA9F2E }} # edit for the Azure web app
+          app-name: 'flask-pytest'
+          slot-name: 'Production'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0DB5317AA75041049B240E1FCFF54E6C }}
